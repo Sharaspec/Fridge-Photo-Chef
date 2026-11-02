@@ -32,6 +32,8 @@ export type ErrorCode =
   | "QUOTA"
   | "BUSY"
   | "NO_VIDEOS"
+  | "NOT_RECIPE"
+  | "VIDEO_UNAVAILABLE"
   | "CONFIG"
   | "UPSTREAM"
   | "NETWORK"
@@ -44,4 +46,26 @@ export class AppError extends Error {
   ) {
     super(message);
   }
+}
+
+export interface RecipeIngredient {
+  name: string;
+  amount: string;
+  /** salt, pepper, oil, water, sugar */
+  staple: boolean;
+}
+
+export interface RecipeCard {
+  title: string;
+  servings: string;
+  totalTime: string;
+  ingredients: RecipeIngredient[];
+  /** time is where the step starts in the video, "M:SS" or "" */
+  steps: { text: string; time: string }[];
+  tips: string[];
+}
+
+export interface QA {
+  q: string;
+  a: string;
 }

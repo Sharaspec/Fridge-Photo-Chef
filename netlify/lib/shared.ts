@@ -10,6 +10,8 @@ export type ErrorCode =
   | "QUOTA"
   | "BUSY"
   | "NO_VIDEOS"
+  | "NOT_RECIPE"
+  | "VIDEO_UNAVAILABLE"
   | "CONFIG"
   | "UPSTREAM";
 

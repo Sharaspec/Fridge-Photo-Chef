@@ -2,7 +2,10 @@
 
 import { env, fail, geminiModels } from "./shared.ts";
 
-type Part = { text: string } | { inline_data: { mime_type: string; data: string } };
+type Part =
+  | { text: string }
+  | { inline_data: { mime_type: string; data: string } }
+  | { file_data: { file_uri: string }; video_metadata?: { fps?: number } };
 
 interface Options {
   parts: Part[];
@@ -10,6 +13,8 @@ interface Options {
   temperature?: number;
   /** Gemini 3 "thinking" depth. "low" is several times faster and plenty for these tasks. */
   thinkingLevel?: "low" | "high";
+  /** Lower resolution makes video several times cheaper and faster. */
+  mediaResolution?: "MEDIA_RESOLUTION_LOW" | "MEDIA_RESOLUTION_MEDIUM";
   /** Total time allowed across all model attempts. */
   budgetMs?: number;
   /** Shown to the user if Gemini fails in an unexpected way. */
@@ -51,6 +56,7 @@ export async function geminiJson<T>(opts: Options): Promise<{ data: T; model: st
             responseJsonSchema: opts.schema,
             temperature: opts.temperature ?? 0.2,
             ...(thinking && { thinkingConfig: { thinkingLevel: opts.thinkingLevel } }),
+            ...(opts.mediaResolution && { mediaResolution: opts.mediaResolution }),
           },
         }),
       });
@@ -80,7 +86,12 @@ export async function geminiJson<T>(opts: Options): Promise<{ data: T; model: st
       continue;
     }
     if (!res.ok) {
-      console.error("Gemini error", model, res.status, (await res.text()).slice(0, 500));
+      const text = await res.text();
+      console.error("Gemini error", model, res.status, text.slice(0, 500));
+      const hasVideo = opts.parts.some((p) => "file_data" in p);
+      if (hasVideo && res.status === 400 && /video|url|fetch|access/i.test(text)) {
+        return fail("VIDEO_UNAVAILABLE", "Gemini can't watch this video (it may be private, age-restricted or too long).", 422);
+      }
       return fail("UPSTREAM", opts.failMessage, 502);
     }
 

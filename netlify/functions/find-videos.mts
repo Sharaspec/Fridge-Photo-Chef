@@ -9,6 +9,7 @@
 import type { Config } from "@netlify/functions";
 import { parseFilters, queryTerms } from "../../shared/filters.ts";
 import { env, fail, json } from "../lib/shared.ts";
+import { parseIsoDuration, youtubeError } from "../lib/youtube.ts";
 
 const MAX_RESULTS = 12;
 // Ask YouTube for more than we show (same 100-unit cost) so length filtering still leaves enough.
@@ -108,22 +109,5 @@ export default async (req: Request): Promise<Response> => {
     "netlify-vary": "query=ingredients|dish|meal|diet|max",
   });
 };
-
-async function youtubeError(res: globalThis.Response): Promise<Response> {
-  const text = await res.text();
-  if (res.status === 403 && /quotaExceeded|dailyLimitExceeded|rateLimitExceeded/.test(text)) {
-    return fail("QUOTA", "Today's free YouTube search limit has been reached. Please try again tomorrow.", 429);
-  }
-  console.error("YouTube error", res.status, text.slice(0, 500));
-  return fail("UPSTREAM", "YouTube search had a problem. Please try again.", 502);
-}
-
-/** "PT1H2M3S" -> 3723 */
-export function parseIsoDuration(iso: string | undefined): number {
-  const m = /^P(?:(\d+)D)?T?(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$/.exec(iso ?? "");
-  if (!m) return 0;
-  const [, d, h, min, s] = m.map((x) => Number(x ?? 0));
-  return d * 86_400 + h * 3_600 + min * 60 + s;
-}
 
 export const config: Config = { path: "/api/find-videos" };

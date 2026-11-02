@@ -12,6 +12,8 @@ function netlifyFunctionsDev(): Plugin {
     "/api/analyze-photo": "/netlify/functions/analyze-photo.mts",
     "/api/find-videos": "/netlify/functions/find-videos.mts",
     "/api/suggest-dishes": "/netlify/functions/suggest-dishes.mts",
+    "/api/recipe-card": "/netlify/functions/recipe-card.mts",
+    "/api/ask-video": "/netlify/functions/ask-video.mts",
   };
   return {
     name: "netlify-functions-dev",

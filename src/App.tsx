@@ -17,6 +17,7 @@ import {
   targetKey,
   type SearchTarget,
 } from "./lib/api";
+import { useFavorites } from "./lib/favorites";
 import { prepareImage } from "./lib/image";
 import { AppError, type Dish, type Ingredient, type Video } from "./lib/types";
 
@@ -91,6 +92,9 @@ export default function App() {
   const [error, setError] = useState<UiError | null>(null);
   const [announcement, setAnnouncement] = useState("");
   const [playing, setPlaying] = useState<Video | null>(null);
+  const [view, setView] = useState<"main" | "saved">("main");
+  const favorites = useFavorites();
+  const savedRef = useRef<HTMLHeadingElement>(null);
   const resultsRef = useRef<HTMLHeadingElement>(null);
   const ingredientsRef = useRef<HTMLHeadingElement>(null);
   const searchSeq = useRef(0);
@@ -105,6 +109,7 @@ export default function App() {
     const ok = new Set(dietIngredients(ingredients, filters.diet).map((i) => i.name));
     return new Set(ingredients.filter((i) => !ok.has(i.name)).map((i) => i.name));
   }, [ingredients, filters.diet]);
+  const haveNames = useMemo(() => (ingredients ?? []).map((i) => i.name), [ingredients]);
   const currentKey = targetKey({ kind: "ingredients", names: searchNames }, filters);
   const stale = basisKey !== null && basisKey !== currentKey;
 
@@ -189,7 +194,14 @@ export default function App() {
     search(t === "ingredients" ? { kind: "ingredients", names: searchNames } : t);
   }
 
+  function showView(next: "main" | "saved") {
+    setView(next);
+    window.scrollTo({ top: 0 });
+    if (next === "saved") requestAnimationFrame(() => savedRef.current?.focus());
+  }
+
   function startOver() {
+    setView("main");
     searchSeq.current++;
     dishSeq.current++;
     setIngredients(null);
@@ -222,10 +234,42 @@ export default function App() {
             <img src="/favicon.svg" alt="" width="28" height="28" />
             Fridge Photo Chef
           </a>
+          <button
+            type="button"
+            className="nav-saved"
+            aria-pressed={view === "saved"}
+            onClick={() => showView(view === "saved" ? "main" : "saved")}
+          >
+            <svg aria-hidden="true" viewBox="0 0 24 24" width="18" height="18" fill={favorites.length ? "currentColor" : "none"} stroke="currentColor" strokeWidth="2" strokeLinejoin="round">
+              <path d="M12 20.5s-7.5-4.6-9.3-9.4C1.5 7.8 3.6 4.5 7 4.5c2.1 0 3.6 1.2 5 3 1.4-1.8 2.9-3 5-3 3.4 0 5.5 3.3 4.3 6.6-1.8 4.8-9.3 9.4-9.3 9.4z" />
+            </svg>
+            Saved{favorites.length > 0 && <span className="nav-saved__count">{favorites.length}</span>}
+          </button>
         </div>
       </header>
 
-      <main className="wrap">
+      {view === "saved" && (
+        <main className="wrap saved">
+          <div className="saved__head">
+            <h1 id="saved-title" ref={savedRef} tabIndex={-1}>
+              Saved recipes
+            </h1>
+            <button type="button" className="btn btn--secondary" onClick={() => showView("main")}>
+              {ingredients ? "Back to my ingredients" : "Back"}
+            </button>
+          </div>
+          {favorites.length ? (
+            <>
+              <p className="muted">Saved in this browser only. Clearing your browser data removes them.</p>
+              <VideoGrid videos={favorites} onPlay={setPlaying} />
+            </>
+          ) : (
+            <p className="empty">Tap the heart on any recipe video to save it here.</p>
+          )}
+        </main>
+      )}
+
+      <main className="wrap" hidden={view !== "main"}>
         {ingredients === null && (
           <section className="hero" aria-labelledby="hero-title">
             <h1 id="hero-title">What can I cook with what I've got?</h1>
@@ -327,7 +371,7 @@ export default function App() {
         <p>Videos from YouTube. Dish ideas are AI-generated; check allergens yourself.</p>
       </footer>
 
-      <VideoPlayer video={playing} onClose={() => setPlaying(null)} />
+      <VideoPlayer video={playing} onClose={() => setPlaying(null)} have={haveNames} />
     </>
   );
 }

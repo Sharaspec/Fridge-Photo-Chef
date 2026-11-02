@@ -1,5 +1,5 @@
 import { filtersToParams, fitsDiet, type Diet, type Filters } from "../../shared/filters";
-import { AppError, type Dish, type ErrorCode, type Ingredient, type Video } from "./types";
+import { AppError, type Dish, type ErrorCode, type Ingredient, type QA, type RecipeCard, type Video } from "./types";
 
 const MAX_SEARCH_INGREDIENTS = 5; // PRD F4: top 3–5 ingredients
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000;
@@ -73,13 +73,47 @@ export async function suggestDishes(ingredients: string[], filters: Filters): Pr
   return data.dishes;
 }
 
+const RECIPE_PREFIX = "fpc:recipe:";
+const RECIPE_TTL_MS = 7 * 24 * 60 * 60 * 1000;
+
+/** PRD F11. Cached in the browser for a week (and on Netlify's CDN), so each video is analyzed once. */
+export function getRecipeCard(videoId: string): Promise<RecipeCard> {
+  const key = RECIPE_PREFIX + videoId;
+  const cached = readCache<RecipeCard>(key, RECIPE_TTL_MS);
+  if (cached) return Promise.resolve(cached);
+  // Share one request if the card is asked for again while it's still being made.
+  let pending = inFlight.get(key);
+  if (!pending) {
+    pending = request<{ recipe: RecipeCard }>(`/api/recipe-card?id=${encodeURIComponent(videoId)}`)
+      .then((data) => {
+        writeCache(key, data.recipe);
+        return data.recipe;
+      })
+      .finally(() => inFlight.delete(key));
+    inFlight.set(key, pending);
+  }
+  return pending;
+}
+
+const inFlight = new Map<string, Promise<RecipeCard>>();
+
+/** PRD F10. Sends the last few questions and answers so follow-ups make sense. */
+export async function askVideo(videoId: string, question: string, history: QA[]): Promise<string> {
+  const data = await request<{ answer: string }>("/api/ask-video", {
+    method: "POST",
+    headers: { "content-type": "application/json" },
+    body: JSON.stringify({ id: videoId, question, history: history.slice(-4) }),
+  });
+  return data.answer;
+}
+
 // Browser-side cache, so repeat searches on this device cost no YouTube quota at all.
-function readCache<T>(key: string): T | null {
+function readCache<T>(key: string, ttl = CACHE_TTL_MS): T | null {
   try {
     const raw = localStorage.getItem(key);
     if (!raw) return null;
     const { at, value } = JSON.parse(raw);
-    if (Date.now() - at > CACHE_TTL_MS) {
+    if (Date.now() - at > ttl) {
       localStorage.removeItem(key);
       return null;
     }
