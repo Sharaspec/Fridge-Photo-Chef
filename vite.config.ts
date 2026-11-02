@@ -11,6 +11,7 @@ function netlifyFunctionsDev(): Plugin {
   const routes: Record<string, string> = {
     "/api/analyze-photo": "/netlify/functions/analyze-photo.mts",
     "/api/find-videos": "/netlify/functions/find-videos.mts",
+    "/api/suggest-dishes": "/netlify/functions/suggest-dishes.mts",
   };
   return {
     name: "netlify-functions-dev",

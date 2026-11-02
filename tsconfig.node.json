@@ -12,5 +12,5 @@
     "allowImportingTsExtensions": true,
     "isolatedModules": true
   },
-  "include": ["vite.config.ts", "netlify"]
+  "include": ["vite.config.ts", "netlify", "shared"]
 }

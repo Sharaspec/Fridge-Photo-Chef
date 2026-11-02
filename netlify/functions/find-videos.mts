@@ -1,4 +1,5 @@
-// GET /api/find-videos?ingredients=egg,spinach,cheddar%20cheese
+// GET /api/find-videos?ingredients=egg,spinach,cheddar%20cheese[&meal=dinner][&diet=vegan][&max=30]
+// GET /api/find-videos?dish=Vegetable%20fried%20rice[&meal=…&diet=…&max=…]
 // Returns: { query, videos: [{ id, title, channel, thumbnail, durationSeconds, views }] }
 //
 // Costs 101 YouTube quota units per uncached call (search.list 100 + videos.list 1).
@@ -6,9 +7,14 @@
 // so the front end sends ingredients in a normalized (sorted, lowercased) order.
 
 import type { Config } from "@netlify/functions";
+import { parseFilters, queryTerms } from "../../shared/filters.ts";
 import { env, fail, json } from "../lib/shared.ts";
 
 const MAX_RESULTS = 12;
+// Ask YouTube for more than we show (same 100-unit cost) so length filtering still leaves enough.
+const SEARCH_POOL = 50;
+// Hide YouTube Shorts-length clips: they rarely show a full recipe.
+const MIN_SECONDS = 61;
 const MAX_INGREDIENTS = 5;
 const DAY_SECONDS = 86_400;
 
@@ -33,9 +39,12 @@ export default async (req: Request): Promise<Response> => {
     .map((s) => s.trim().slice(0, 40))
     .filter(Boolean)
     .slice(0, MAX_INGREDIENTS);
-  if (!ingredients.length) return fail("BAD_REQUEST", "Add at least one ingredient.", 400);
+  const dish = (params.get("dish") ?? "").trim().slice(0, 60);
+  if (!ingredients.length && !dish) return fail("BAD_REQUEST", "Add at least one ingredient.", 400);
 
-  const query = `${ingredients.join(" ")} recipe`;
+  const filters = parseFilters(Object.fromEntries(params));
+  const maxSeconds = filters.maxMinutes ? filters.maxMinutes * 60 : Infinity;
+  const query = [dish || ingredients.join(" "), ...queryTerms(filters), "recipe"].join(" ");
 
   // 1) search.list — 100 units
   const search = new URL("https://www.googleapis.com/youtube/v3/search");
@@ -44,7 +53,7 @@ export default async (req: Request): Promise<Response> => {
     type: "video",
     videoEmbeddable: "true",
     safeSearch: "moderate",
-    maxResults: String(MAX_RESULTS),
+    maxResults: String(SEARCH_POOL),
     q: query,
     key: apiKey,
   }).toString();
@@ -73,7 +82,8 @@ export default async (req: Request): Promise<Response> => {
   for (const v of detailsData.items ?? []) {
     if (v.status?.embeddable === false) continue;
     const durationSeconds = parseIsoDuration(v.contentDetails?.duration);
-    if (!durationSeconds) continue; // live streams and premieres have no length
+    // No length = live stream or premiere. Also drop Shorts and anything over the length filter.
+    if (durationSeconds < MIN_SECONDS || durationSeconds > maxSeconds) continue;
     const thumbs = v.snippet?.thumbnails ?? {};
     byId.set(v.id, {
       id: v.id,
@@ -85,14 +95,17 @@ export default async (req: Request): Promise<Response> => {
     });
   }
   // Keep YouTube's relevance order from search.list.
-  const videos = ids.map((id) => byId.get(id)).filter((v): v is VideoCard => Boolean(v));
-  if (!videos.length) return fail("NO_VIDEOS", "No recipe videos matched these ingredients.", 404);
+  const videos = ids
+    .map((id) => byId.get(id))
+    .filter((v): v is VideoCard => Boolean(v))
+    .slice(0, MAX_RESULTS);
+  if (!videos.length) return fail("NO_VIDEOS", "No recipe videos matched.", 404);
 
   return json({ query, videos }, 200, {
     // Browser may reuse for an hour; Netlify's CDN keeps it for a day (durable cache).
     "cache-control": "public, max-age=3600",
     "netlify-cdn-cache-control": `public, durable, s-maxage=${DAY_SECONDS}, stale-while-revalidate=3600`,
-    "netlify-vary": "query=ingredients",
+    "netlify-vary": "query=ingredients|dish|meal|diet|max",
   });
 };
 

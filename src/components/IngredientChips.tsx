@@ -6,9 +6,13 @@ interface Props {
   onChange: (next: Ingredient[]) => void;
   /** Names that will be used in the YouTube search, highlighted on the chips. */
   searchNames: string[];
+  /** Names left out because they don't fit the diet filter, e.g. "chicken" when vegan. */
+  excluded: Set<string>;
+  /** Shown on excluded chips, e.g. "vegan". */
+  dietLabel?: string;
 }
 
-export function IngredientChips({ ingredients, onChange, searchNames }: Props) {
+export function IngredientChips({ ingredients, onChange, searchNames, excluded, dietLabel }: Props) {
   const [draft, setDraft] = useState("");
 
   function add(e: React.FormEvent) {
@@ -33,9 +37,12 @@ export function IngredientChips({ ingredients, onChange, searchNames }: Props) {
         <ul className="chips" aria-label="Ingredients">
           {ingredients.map((i) => {
             const inSearch = searchNames.includes(i.name);
+            const out = excluded.has(i.name);
+            const cls = out ? "chip chip--excluded" : inSearch ? "chip chip--search" : "chip";
             return (
-              <li key={i.name} className={inSearch ? "chip chip--search" : "chip"}>
+              <li key={i.name} className={cls} title={out ? `Not ${dietLabel}, so it's left out of the search` : undefined}>
                 <span className="chip__name">{i.name}</span>
+                {out && <span className="visually-hidden"> (not {dietLabel}, left out)</span>}
                 {!i.userAdded && i.confidence < 0.6 && (
                   <span className="chip__unsure" title="Gemini isn't sure about this one">?</span>
                 )}
@@ -73,7 +80,11 @@ export function IngredientChips({ ingredients, onChange, searchNames }: Props) {
         <p className="hint">
           Searching with the {searchNames.length === 1 ? "highlighted ingredient" : `${searchNames.length} highlighted ingredients`}.
           Remove ones you don't want to cook with.
+          {excluded.size > 0 && ` Crossed-out items aren't ${dietLabel}.`}
         </p>
+      )}
+      {searchNames.length === 0 && excluded.size > 0 && (
+        <p className="hint">None of these are {dietLabel}. Add an ingredient or change the diet filter.</p>
       )}
     </div>
   );

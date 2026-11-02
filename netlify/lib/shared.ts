@@ -37,5 +37,18 @@ export function env(name: "GEMINI_API_KEY" | "YOUTUBE_API_KEY"): string | undefi
  */
 export function geminiModels(): string[] {
   const fromEnv = process.env.GEMINI_MODELS?.split(",").map((m) => m.trim()).filter(Boolean);
-  return fromEnv?.length ? fromEnv : ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3.5-flash"];
+  return fromEnv?.length ? fromEnv : ["gemini-3.8-flash", "gemini-3.7-flash", "gemini-3.6-flash", "gemini-3.5-flash", "gemini-3.5-flash-lite"];
+}
+
+/**
+ * Tidies text a model produced: Unicode-normalizes it, drops control characters
+ * (one fallback model sometimes emits a tab where "é" belongs), collapses spaces, trims.
+ */
+export function cleanText(value: unknown, maxLength: number): string {
+  return String(value ?? "")
+    .normalize("NFC")
+    .replace(/[\p{Cc}\p{Cf}]/gu, "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .slice(0, maxLength);
 }

@@ -1,6 +1,10 @@
+import type { IngredientKind } from "../../shared/filters";
+
 export interface Ingredient {
   name: string;
   confidence: number;
+  /** meat / seafood / dairy / egg / plant — from Gemini; missing for typed-in items */
+  kind?: IngredientKind;
   /** true when the user typed it in rather than Gemini finding it */
   userAdded?: boolean;
 }
@@ -12,6 +16,12 @@ export interface Video {
   thumbnail: string;
   durationSeconds: number;
   views: number;
+}
+
+export interface Dish {
+  name: string;
+  description: string;
+  uses: string[];
 }
 
 export type ErrorCode =
