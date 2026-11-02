@@ -1,0 +1,507 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document (opensource)
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 33 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/text-generation)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 330.7 505.3424 342.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+5 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/image-understanding)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 311.2 526.8672 322.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+6 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/video-understanding)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 280.2 524.9136 291.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+7 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/audio)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 237.7 466.7016 249.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+8 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/document-processing)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 206.7 529.296 218.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+9 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/structured-output)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 175.7 511.7048 187.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+10 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/function-calling)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 144.7 505.3336 156.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+11 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/google-search)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 113.7 544.476 125.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+12 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/url-context)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 82.7 492.6176 94.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+13 0 obj
+<<
+/Annots [ 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 9 0 R 10 0 R 11 0 R 12 0 R ] /Contents 58 0 R /MediaBox [ 0 0 612 792 ] /Parent 57 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+14 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/code-execution)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 702.2 505.3424 713.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+15 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/embeddings)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 682.7 493.1104 694.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+16 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/long-context)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 651.7 494.5888 663.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+17 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/live)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 620.7 476.9712 632.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+18 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/speech-generation)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 601.2 518.0672 612.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+19 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/image-generation)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 570.2 512.6816 581.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+20 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/pricing)
+>> /Border [ 0 0 0 ] /Rect [ 444.2 539.2 471.0928 550.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+21 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/search/list)
+>> /Border [ 0 0 0 ] /Rect [ 462.2 419.2 501.8088 430.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+22 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/videos/list)
+>> /Border [ 0 0 0 ] /Rect [ 462.2 388.2 500.832 399.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+23 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/channels/list)
+>> /Border [ 0 0 0 ] /Rect [ 462.2 357.2 510.6176 368.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+24 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/playlistItems/list)
+>> /Border [ 0 0 0 ] /Rect [ 462.2 337.7 523.8088 349.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+25 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/commentThreads/list)
+>> /Border [ 0 0 0 ] /Rect [ 462.2 318.2 543.864 329.7 ] /Subtype /Link /Type /Annot
+>>
+endobj
+26 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs)
+>> /Border [ 0 0 0 ] /Rect [ 462.2 298.7 516.0032 310.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+27 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/iframe_api_reference)
+>> /Border [ 0 0 0 ] /Rect [ 462.2 267.7 534.0872 279.2 ] /Subtype /Link /Type /Annot
+>>
+endobj
+28 0 obj
+<<
+/Annots [ 14 0 R 15 0 R 16 0 R 17 0 R 18 0 R 19 0 R 20 0 R 21 0 R 22 0 R 23 0 R 
+  24 0 R 25 0 R 26 0 R 27 0 R ] /Contents 59 0 R /MediaBox [ 0 0 612 792 ] /Parent 57 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+29 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/api-key)
+>> /Border [ 0 0 0 ] /Rect [ 164.59 418.1 240.19 430.1 ] /Subtype /Link /Type /Annot
+>>
+endobj
+30 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://docs.netlify.com/environment-variables/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 159.6 401.1 287.97 413.1 ] /Subtype /Link /Type /Annot
+>>
+endobj
+31 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://docs.netlify.com/functions/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 174.03 384.1 242.94 396.1 ] /Subtype /Link /Type /Annot
+>>
+endobj
+32 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/rate-limits)
+>> /Border [ 0 0 0 ] /Rect [ 121.8 350.1 199.03 362.1 ] /Subtype /Link /Type /Annot
+>>
+endobj
+33 0 obj
+<<
+/BaseFont /Helvetica-BoldOblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+34 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs)
+>> /Border [ 0 0 0 ] /Rect [ 74 261.85 124.57 275.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+35 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/quickstart)
+>> /Border [ 0 0 0 ] /Rect [ 74 244.85 119.01 258.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+36 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/api-key)
+>> /Border [ 0 0 0 ] /Rect [ 74 227.85 141.26 241.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+37 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/models)
+>> /Border [ 0 0 0 ] /Rect [ 74 210.85 106.23 224.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+38 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/pricing)
+>> /Border [ 0 0 0 ] /Rect [ 74 193.1 150.69 205.1 ] /Subtype /Link /Type /Annot
+>>
+endobj
+39 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/rate-limits)
+>> /Border [ 0 0 0 ] /Rect [ 74 176.85 120.67 190.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+40 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/video-understanding)
+>> /Border [ 0 0 0 ] /Rect [ 74 159.85 243.52 173.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+41 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/image-understanding)
+>> /Border [ 0 0 0 ] /Rect [ 74 142.85 167.94 156.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+42 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/structured-output)
+>> /Border [ 0 0 0 ] /Rect [ 74 125.85 150.71 139.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+43 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://ai.google.dev/gemini-api/docs/function-calling)
+>> /Border [ 0 0 0 ] /Rect [ 74 108.85 143.47 122.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+44 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/getting-started)
+>> /Border [ 0 0 0 ] /Rect [ 74 68.85 139.59 82.85 ] /Subtype /Link /Type /Annot
+>>
+endobj
+45 0 obj
+<<
+/Annots [ 29 0 R 30 0 R 31 0 R 32 0 R 34 0 R 35 0 R 36 0 R 37 0 R 38 0 R 39 0 R 
+  40 0 R 41 0 R 42 0 R 43 0 R 44 0 R ] /Contents 60 0 R /MediaBox [ 0 0 612 792 ] /Parent 57 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+46 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs)
+>> /Border [ 0 0 0 ] /Rect [ 74 724.35 135.14 738.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+47 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/search/list)
+>> /Border [ 0 0 0 ] /Rect [ 74 707.35 119.01 721.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+48 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/videos/list)
+>> /Border [ 0 0 0 ] /Rect [ 74 690.35 117.9 704.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+49 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/docs/commentThreads/list)
+>> /Border [ 0 0 0 ] /Rect [ 74 673.35 166.8 687.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+50 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/v3/determine_quota_cost)
+>> /Border [ 0 0 0 ] /Rect [ 74 656.35 127.36 670.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+51 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://developers.google.com/youtube/iframe_api_reference)
+>> /Border [ 0 0 0 ] /Rect [ 74 639.35 155.69 653.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+52 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://docs.netlify.com/functions/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 74 599.35 147.91 613.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+53 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://docs.netlify.com/environment-variables/overview/)
+>> /Border [ 0 0 0 ] /Rect [ 74 582.35 172.92 596.35 ] /Subtype /Link /Type /Annot
+>>
+endobj
+54 0 obj
+<<
+/Annots [ 46 0 R 47 0 R 48 0 R 49 0 R 50 0 R 51 0 R 52 0 R 53 0 R ] /Contents 61 0 R /MediaBox [ 0 0 612 792 ] /Parent 57 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+55 0 obj
+<<
+/PageMode /UseNone /Pages 57 0 R /Type /Catalog
+>>
+endobj
+56 0 obj
+<<
+/Author (Tushara Hall) /CreationDate (D:20261102175551-05'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20261102175551-05'00') /Producer (ReportLab PDF Library - \(opensource\)) 
+  /Subject (\(unspecified\)) /Title (Gemini API + YouTube Data API Guide) /Trapped /False
+>>
+endobj
+57 0 obj
+<<
+/Count 4 /Kids [ 13 0 R 28 0 R 45 0 R 54 0 R ] /Type /Pages
+>>
+endobj
+58 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2984
+>>
+stream
+Gau0F>BAQ1&UsJXfV_^3e7K!CR65TH\5%+b4`t5AREX`G,%6<7DrJZq3rSU)"aH4WOV2qS3tVm_$Xi_Hm^EQ[;":$3s8<emY=j+gbCF<2Hj"%0"t]6$Dp+%\(\NSO"0Q+`rJG%BQOPT4o/44sC?_Sr3kc3Di]W@?,_YL\&+F6,P#fb@`Snfe4jir:$3U88/AK$l=-DDVTkfNs3/sGTDp<k+*rUmfCnA%6YZ1q[kf;>V0TDKd$];*UNhbPGD8Tm;<iCUAEaR^=TS^?t2XPI.]fX]X=FfM3blW'c@0XtDqRr)]<bXH\(LMN]q&1$@2dQgPL2XoOq'A/4^\V7<6$`iDQ3$9q/$PEEf]?0h:J.f!df_oeEq*N4!H=\&%-7W]R-(WSMN*sLn96OCp7D1FIH'dSkFc*=)dR-WAe"1^3*5LYdOH<sAd[0N6M8qVGd*4@`90Xg6spmuUTh!P'7/@Zq5.oB'm$XFF*RTt-.-r.LflrMB^GnZbA>?eA@mSq\dj2CRVB;!.nj`SlKjU+L[C(^Lc!YeFeY[;M5npXe89sjM)''s>D8ah83H1<Y=BE+9il)7SS?,>RUS4!EYRI8(i=*`N#]6hY%fa>f^fbPqJen'dp9N#+$43t0GE318Y!1"Iu:!7OK(-M83Z$84#XqP1gNWL:Bb!QJ2e!_7/Kj>6]$QiJjLI8k<(;@!@@bKFsi=TW[-MJ;.?k^0LcS/-iOEJ55B^Y#ZL9erQT2Q$lae$,762eCT,tfg4=WBD&hp4d6(:;(:u$*Qhq_.m&WG7AKLCigm_D'Y28&\8\u]gAWaH]_P._oB]&C0QsA=[L.lRRM8ik>_W3eSO(<3Jd,9r;..!V#)i;7"R`3W)>^FsBZ59Rs$^802I:r)IDrF>;W]9_Cn3:Gq6q<@d7>D*SP!M/gME.Jno9UGN\EJ<e@*t$D;BqNe=AWsg4BuesC$#HFRDpolLJH:\%7f<b9e0=eZsTl$msI3-9$<ZZ((#@L[h#;pCgRu"ig#tT>)XndeuugsR`%6T#u33H4o;i>XTEa&84`9[Y7!IG"h]ElSj.om0*Z#I6(dEVDfa5(18NC@P/$JfiIg-`%$>3cLZJ_\YN-7KEEFFOP8&Bi.sO=-0+S7e4)Y^)]i7uHIT.bNQn#qo+i>#uhJk5HaIF5`rdj7)*2^Ig;QMVGE0/2EKMKE1X2q:"=fDb(I:\;0,Kl5(J](N7E3M-sr3CQOCL?R(EmX.4r/27RH'-^$PQ3oo^X#aV6M'F:;TR=%]ns2IgTIae.^'APjZ!,3m6\(?qB6[i7s?h&iMW_3f7Hfe06#e2*YjV;M3@63*lNk<pSp;<lHW=Kr6X3:+7"B^f./7Yh(RL,Lu=#.5W"sZ_#S&]BK#h1pLGp8A=k@gkjGTM6e>,io\&negun!XDRJPNLm26!oOFm:(huc*5OLs-92^&49.u##8FlT%MgaGuAa5G(+WbhK7;pn);EqgERSFLl9(+j^,bU,cbqiM1MF,)&a8Ybr%Y?CtIMm"sj\]E#6Rg$$b*%Wp4;pF6?;QZ8Vdkum`;@.8>3>UAT8+rm#4e98%?ls8:Dq1ISel$nd]Pii5RMn%ft;0FdALe?*$6O`A.@'+:M!;FSiTdK#$%(:X"Xn.+WP,'35:KQ!B\5@*+;oY2eVO%g3FW'Bp"o4IT-K`;1af5s#0G*%7VnsOX.ZX*MF9c)5U^%3KcP`5>es'7C104JgD`0nB#k#P_3%]aGH"-&iHh[Z*8[^'o8/5:O"LUid.$R'O,Cq9e?pE!Mi9t8G0au"Z=(Na4"?U^maSJj`[*[mQE7e0P[IHS:bQ[47*oRX^_g^Cie]:dorUd6h4L\4E6ZF,]-;2X?$-q7.ji,d#PF:VRhX>@g\?l''kh5TAu%O4hEU^T%f!b*G9i4X3R0n-M<G3,;b%L+3_;kb$ZoImN;4*6tFFpUN@0@c0)6:KTo,t`V5NTbi(&D4B5@8=(RXE_^hb32e,9`L9a0\\P@J6[H&3(/DDn$@Ei:LaJZtU7`Q<t`=uqBq53&*C7LfGn(MI]%E9O:*10*HK3fZ1PP#b(FDZ>1qB<Wk(-ZUZ?%#(0,'3KD<-'JAAXg'&b"'6_HBI@gC'W:$le9W$2C9s8"Cs?pkMjA+'[*eiZZ0uFbn(gfT;[Ws$]]092OLNdnk%sM:?eHn"Wq<<rK[;j^?h!)\)@'GcS-Nr/&B_OZc*=ChI<Z0K,gqha2DHDp<r9Zq[!aKdOHoKlLe&Di(K;<%Fm-XoHro$"R%_KB1#HpCo1EL6gl!coW%.S@YQ9USHZa)KRUX>>.+`30.'P&,;PgGMCtWXr"b0KA(oIYV8uja=WW.4*'K75U*k@A/2VJ9.Q\^f_H9/jR!pE%;d\29ah>I"m7na'A:.\t-fAJ1jI[h[d@ERo[,GP_G-<Uu&ucP-Pak?4(qjt90Dj.s7F;r/B&(Fs!0'bMCl`!SWd?ob>4\:m0#WV39\.3NR9)Rm8'IIOWm%It69BQN10?b7F.X[saeFk11<L;[HhcdmP^)9K^6u8;9]-Mg>ZiQ_Pnk.FIB(q_6KgUG1mlKaa9hA"UsJ252L5kN3?''<>Km<*Sudk).e,s1j*OW[mP9Oc6&)U`a31VT(I\rMkqc))"sTe;jTaCm\=/NKBX,sLb@Dc?'H/d70oh2fp`GXrkS'?'aVGi-@2Z^scI5B^$[KATU?;Iu$o%euA*gdO/1iJ^jn[dGs/RaJKI78UI"fkB^g+C2bOS$rk:0suA&_F7kYd$Dg`Zu'F;)ke"]J9iI6K.GRm(O(=?#C>s'.ogjkNWF8l!Dl0T0>#_)"\u7Hl;n$4887?r.E._DqLST=t(R+_N?L9],XPTu6f'TO9a:_'VEUfK,p;GKHkk]K)/Bh92pL?iP.^s4Q5/0e-2T:L^Bl("MNZ?aSQ"Xg\eB0:Q_$o`^anNErGr7am9tVUsAa:2Db8Q<*`gj7j?-;sDUJ<H2QKe_dd;1IM;(ak"`So#5oK[(7u;d0:Ee"3EL<Oo~>endstream
+endobj
+59 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 3157
+>>
+stream
+Gb!#^gN)%.&q/)-oY]6JRE,e]-RTF/R:Mi1<&Wb^g.b;,?Q]rD3$nrd"RTm;IMr2X;3jUBPdbDffS0F,ETr,DK*.Q-nB4cq(Fd/'1O+%ZJn`&;$)V2l0`)-jc(9?5<jr4;+Z-jChJbUTkJQ?;`CbTpXKB)Ef_C:;-LY(UB/.'0q#E),:L;;G3J2NT:f[2&MBhfrAq.Y`B5,%p_R9m!#oYlaFN)&\4SfqNf]g\h/AoCD@BEsAVX&qDfYe4#$]!q-Xsll.iR=*,)_SY=JL`Op;Scc:1KorKocn)4loea0VXHN)hp?@7(uT>iEh0H5M!m0$D=aDpa52/NaJNY\NAS#g1[/%jA&R*W<he/H]2kVY.$Rgc7Tp&TRK\$1>DjM/ii3s3FQ9E;$N`[]au"*1BP6n%k&_XlZ.SDf\*ICbKF#fl?$ojT!?5@]Jn>SaU]&iRB35uBF'UI(,%eeYO*;2!Mn4/R(ZeNSkQX8e#F4PVo+%-GpDq'p#4)S!<$LJXO>ANQW/_/p74_OI1lJ$*Z4_%5@a-]2ncD]=euBmVO[@FcmeESnVd2!J5?X%imB<YbD04/ebOGGFZ'>i\219bRpG3$$'Kjhu*Qq<0-1LT,]n6l8_ia9S><6Co'PFK,b>C@YnbX+A'8^k-QRcO,cuNtBAe-S`<CI+Dr=Dn`;[i3X'^d\%E'Oui]Xod>c3/oL[Lg)"'f8NPMoE7F+Al/RK\1mS.E`8W\3>Oa)8/QgJ>KN!.9)f;_`9_!.OY!'@:BBb=5Y=L<j:MMFP@@'9Q)aa-Js&f#7iOYJpUO7+JAs:J2k_&;8V^raoRVjkI_F8rX6nn$tIA%B1u3lD'6f'PE`O0L>Xb30i!6dA,B.`\AYV(+?1;M-i(r>cl\1$pmt&82h6V0p:i;M>_tFOE6mPJP>ab4P^8t&/<S!cLk95M6@5K&p@d^4$p2'UIAsE4r;&SiXg<F=j9lbdDsW5VRPVBS_hr$,fNICZm:8-Pg9\sZ!rRVNd5.sa:[!In;,J'aMNV&/%!5=GTageqK)UNg^GUJ>msWpr4TBfd+*Gm1&D3bQnctS[%qFN2brGVn1]/00JhrK*qNt*qW*kc3YUC8EDh)E8;onK!/r#PhaaNX,mi*08"$kLB^R-JTL(fs2fg%OZU'!AooLKL=^TlDTU00.:r("$!T-18YGgU!YKKa0\i*L_Up`ma"[hH^rDdTG"n8VCF'^O89L3*?n6PtN/Xn>=a@!P3Q>3Dg^Rj)0HBKRuohspTIB8.K2(<-A"YX8dqL:n-SoOR,uiLqK^Ue2ELAN>?3,>$W;RTcHNA=K`aT@6S"[NPSsFoD#ZdajON4mbFgXOq2;lZ1UcD4BgL/R*@CV_rG&XfD;4AkL4FHW9+8`S%DK0"3E)Wi93%\S2B;\f(rNSS-Jq=D7!HladQ6h)UXAL>1DI3K\K.SJF()da"q.q>:Mn*WZLS3[gB_?qjD+h@QPh((%E7B?/'(hS&jq//heAm`D#?+FZD6_].!;&73OUN]uO&6UAQ&=0*+W#tmAqI'5L>TZU_@kCX5I$N/P@&-=jB+JKeWOA@@O&2?K2"HSor/CodBYNrNkCr8=-,KCH$ngWUDr']<`/,.?=*KMV%J[P6fO@&0""#_`O5XHHr9$Db70egp4qZ!KVIUU;>$Tq;!Js;*L59A9J$TZm=#`pQ[r!6oH1@^f!b9%4<ZR'8]rHsnMTZtJs;]P2L+i41XM"J\.ZLfJ#P.5/o[6NGt']-l?Y@D)OMER2&h#B4S(rcV&Q$G\TZL\^k)n9CI#@9esX[=Z"7,Z1n6[9?2Xi,N8F\4P\m&lHH[-%35M"^N*75>/enuVRb8(#]Qa9^JX'L*d:m,$c9O+$E-PAjtkj)Hi47=q\%=Lfj>>U]VAPpX%>XCMitT-V.7d\TteAN$PD0l:>CkR&9J\k;.RbW%tg(qh3W&16bW<&G:%J`5;FT28=')+&q64W603p`r[pmcCS="YuMj0Zn,_OYOndJ3M!BRl$eb6FObJON0kPA^KJuM,#3(SjbBMTC)3u>iJ((r]mt&fWX#erB[[[,T'e5n!bT%'*uMod'dk\6thbdSsN:8$)c1tY.n?e6QcZ+ln%Fij)VsRDAa'8qlls8mqc8P_`u9?UV"+:k"34!!e,QSamoS\3l!$Y'JK_r5.^J3LO2f2k)nkShYHnAkP2m,6j`c<DifN&qJZ;=X2c`^[GKPjR46Kr9-"DZr0kiZ4/kh7B;X4&b*+SeAMQS#$Mg:b<Pi)@nYQrb6%4'pd^\B"!(`\VVfZp,aTspMQ%FT>=i%BIlQZPm6fWsf!ja`=T^U5Z[n',4.Qu@\:Y06;d=&%\<tu>.V-Cd"-6+E>i@kfN8sm]alM.`%"H5P$'F\E<[3948-^c-\n767M2iSpsEJ(O^Xi&am:Ea'4Mi;1Bbj5\$Ns*=m,PD:HYts[?Fc.`Y/P:hu>?&.M+cZ%?9209-2&(0"S1#DHEb1MXW(K/BV\:s$Tdk3>*+IN:]!Q<9+<Xj$]#caVg<Z$;s1?3:UU@])H1/nle(UO1lO*q*67jlL^oo&K=NFRRSdUAL0+&X27J3DhXF/)7eWL':?rq-(>c\7\.sWj!'prQdZq]?kX7I=.lQpMT7_IiAk6XMmepI\H#_l-uO$-nFm9WuF>\\o$O\:)/g"lqQQhk`3_;u+`*r0d!$,p=\e.G/Gd.)o)IKl(U'*[&JGn)eZg+0h)?JFF!_Q0KG\7W6],uZJHbo+a+3"bHKS:;*lIm,TL`6/ThV%cjp(lPQXCN30(O+&THKudFYIU9%P["@$_\GG/ums,rg.<e2#4\9ZZ_Rr:4C`(jY1)kQ1Gc&??N&KJXVhk(QD>S4+-(dEsRh'cA.G8]LoaL\@k]P'.>%,!EF2?i&ROrkfC-2OpRaE*6q,2F'bO/[q:t>kIg^G#.<X"CjGoV(b^j=0)fDM>,n#42cCCZ>MF5TR;Jb:*Lnp6D_MB#qh.>hj`Wab:U$*Qa'M.uj%p?q6hQ]SJ#J#PNi/&AF'MCR=bIH$t+HI?B"g!:,I>T&kAVP^C<GpR\Idf_h"h7]+@4LUSVRaPY$Pr^S<qBFa1].u?CN(<Df#J;j=OL9-d28!cZdJj++j6[5!\V3fE1sjOZL_LjS(7G5GWk/+@n&\l+F<W0=4AAE:GK6BDPFAQ9;VRur#<_l&aq6BZ~>endstream
+endobj
+60 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 2612
+>>
+stream
+Gb!#^=``?=&Ur?8kh:fZ].:]7S4*/rA]pB@.;qhEQq^K?QQ\%,a256O!O^(R:\Wci7@N-L`@I3AE!T,Z?h`1.,;HFmS!i/R#4QL3YHJcs#:B2\4NiB!-hoAUqu*VpA5"(5<m\!R?@ZB+XM7dlH@WE8q]<9B6jBEI,*TQj[l;q.1]4k`-hUHSH`jn^qH1p/r!8Li0_pQK?erSAXM>d!qqU\/!-dPUc`#i\3%l+Q$n]=rM`Jul,-Y>,+-.FA1%]i_)Wl:R'82Y^^?r`?Mt!_ZE;pU>7,QfP.+[23ZM%cY@U\2g[?9Y,d264Xa7l>-!>_h$n8(<I%M%6Sq>T<$Nd'-)OZTpUi#K0EhY6qsgVD0(J-dRW"I%;i;NDJN^=.V^CTmk#3mn?AmFPDLN%G]gN$1[#cff4K5!sf7ItjsC^[j\Q>_COf'LHXOiJ'N[G(TQLf*Z7=P-#AD3>h=9Zi@$upY(*@1SHYO9":%0,-#'Y3G_4pdX]ff@@MG=#Pd7t/eE=!(T=kEnOK!fRDZf=q?-4LJZgr2Tle98Cp$&?T[CZJ6DLX'7':_oqKNHR``XFj'MHa9`EutP4;2[tntuLAq7n2$57KNU\1BBj&ao.T>W$]sSu_[oi77NL+F*Sq]kRC=SYj1Aj'O6k)blQJ-(a^#6Wkh:j[-aL=ceOZV`2;@H7gn3/@a//OjDrkX^j&KK"!a9T<sOlPZ@6R`4PM#_1\s^[(9&qQ/ILNT6hRtJ;9fhULU"0WJ[L32;F(C'T]rK]/n,[-3(:rYP&aEC%[6dM[GRs)[5*64f0t)/#gq3WSTlZg8S'*!27]c96j<:,=39a(KDZ',BUT$*C<Bf.\:.14\'$ne/cEH)5!!oV9i*V'jT%0Sr9tBC-m"i6MlYs[$jC(UqO:#X'U@WV^ek1<)a,+!S-6KAsen[XB-t8M9'1H%V8gR-=,YQ-CU#ZMgM8?ZGh#(@)o>)Vc9_nlUKeu3G"84Y"cALQDK+)j?<;-#M+SGnJd-1$BI&e;HGlQn:ZWq4<OuJ*KW:I+V'Que6:q#=%8sP1d]902lM"!QLklffFC$(f5[oZ@AUo$YH)5Q0IggCf%Ur/+UjG#'Ipg..K#JI1TH$D&AqTQ_6J1?2>j[D8IFknU:47iVk1q$/68,?2>.=.7:6W<0,q,-EPF&FOgNd&fV2e+Wd+3D".8*`5*adU5tm#Xm1[fY22sRSPT;O!^:Gf"?LVmN"@4a//,L8KK8^n`ScPAkG9tS3RKEV7<?ZG.hnVp!]E9rK-c.D,q6FG%[?M>(LAVfUbbt?6cggk7VU'$a-h:JY?3B.oPAkUJh%WH)Q+kVa`B0%G6!1eKLo_\db=3h7;Q:oQ*MH1VMlGXMUXZufUYkB(Ml%EWDD9^C?]N]Z8&O04)J_u:r!e.iSlm3Hl51,afSpjdi+ll0."L'5B.2h\AT5u>m+GXAE7`G%=arrNC,]r'=gMS/1O$"j5k")X]t`ImfBb@dcgP@=d&rk=Q$qK8VGY?\em:SmRt][9Gh&qEBgK't=8f/VfhPWIWoJ6&Gh&qU\DJjs7CS"=I^=bFh&;#\Z\B8h>O9XuhSMa+HYGqGalg&k$>f4e@.uD"ZcI/9MOHZF+S/<<ND3[V;EWCs33?b\!7K'JKhgb.'7:\R=$h<1EGI\#*j!t'7@K"hD%NnB;03rlUG"/,c*h`Bea)+_ITSlqp<Z_TPNXD6FcD2&#So>,/_7W\a/k)-X\<=:es;Jc1-Z[pD3O0L4:q`9*O[D)*\*%M.]AcJe&6e!J`WKM9EH5[[(EaW?)C&]^a0I#74PA^0=k$QU0`fB>d<sqj+J2V<6+h(%NA"@dmDC&<[9l:gP&omM0pIdfJO?>!o%`Z:"qR:\\Ej7LLV'B/>cLjaI?;)F+#3FYXUr#p>aeNfkA=JZ/&tJ3`b;^l,d<.K.og%0rO/m\e#:G]q'FKk:uW2lg^n\e)M<bYSo[@>UDEF%=9\r:\EGNMAb1(_.s6;*i"Tuc;[-\WG_R`8sFqn[OoG/MQC?IW9L)e2`\?a)rF2g?75YbfI1\9U7i,P,3Uorgo(aAK*1(Q0!HoQcutUM_d+#/!^".*h67B=8ZhAZgf'MZ846Lk!@%%A/^]-o1M/\=m78LhrBE[/!bpJ&IMfo^&Ou5Ir"TA9NVJcDOL=2_co=O*La;U?%4kE<0X;,.Z?&hT-i]3O1C>!Gb],$Ogh<E%N$XmW<O'?2XuY%+o,lMp_'[jmnqFCqkEAR+q]`2"!1Q/9Q2/>kDNR?Ipt:RKkmQ'L2r!Rt[bE^#IG-:Q68U+=J$Dn)WXcA9f-OCH?5kLo)l/(W<A6']0kd*O@eF/Zj3YV#43Y4\23*^<K[od)O0!Ctk4-p&)`,YD%^XG;B"9@F=LSJdZsSdApUAKW/8(@:2_=kA)jbY#dogcJiU3[oA6ZlY/bDk2\uB46kBMJZP4>35U%eKd%+#(]ZHMW=ak^R#++A_2fGNq8F-qC<goG.qOCn':+T9_1e,A>#P8YJER:lO+%(F,[rV2-+f,8^)cO:o&drE.;SX@7PJHb,;5Pg*T8)@dPrF.S]!Hl?"k3=WF]:$a!<',UMHiL^tC?*'G(@I:Ji(r:e0^;G6%]IhJf/>="aMttr^tF2<P3]8j~>endstream
+endobj
+61 0 obj
+<<
+/Filter [ /ASCII85Decode /FlateDecode ] /Length 666
+>>
+stream
+Gb!$E9lJc?%#46H'g-(MeLXiFp3,/o-7CP^C$Wrm>o\Pi[)I&9gDTkV-TObb\udo`;@B^F;PNpt`!]Fur1NF](B@etpb8C,).ZC5S8cQ`_0IrM)sod[E25nim=\.4.-Sro'fOEeFMT-o3slg#YqXbEkLg$OKC<B8204GSH(DFABk%qR#-sk_]a`AM6c=pSSfHb6neD3j>'f:/4KOe[-q8WF]%A<XE,\&>mZoPA$!H2Bg>Q'dr]ufaK*F0TW/rHi=>@Yj/60Ps)UMf2>u*uA<t-!D!X_bU*.BebF.<MaRRp`JEN"K,,s&CO+5q>C,CXr(OckM1"0=2#H;-;pWr)9rU0[kl,3^emXmb/QqDXt&:/=A)8WmM,\h"2qFgcI\0E)&P`2CY?MKmA_KR)+4?BB83eQ"8//5M=n$6f^5l,CU&"i>)>hkLRjgC$RpFGA.%4OBW@COP9-&\E*oTJV$\S:$1d`[pTUc4fFm.&n)UFJ,f(d9tC)?(9:9G)fD`kohKe,\=kAcgB;ndKU;6D=1(]hdA[J9Qm4;49+&9n\1PTF18:8ZdfrNP`=-oJR5,NKaYCA[ogk&A$bpF+soOkd@K=K)/\^IEk?j&X3V]r5ZcLm&F?n*>#B]oE\TQcNdY`Q2>FcmE#3'E/BGbI+6aI@7XkE/4r-3~>endstream
+endobj
+xref
+0 62
+0000000000 65535 f 
+0000000061 00000 n 
+0000000113 00000 n 
+0000000220 00000 n 
+0000000332 00000 n 
+0000000528 00000 n 
+0000000728 00000 n 
+0000000928 00000 n 
+0000001114 00000 n 
+0000001313 00000 n 
+0000001511 00000 n 
+0000001709 00000 n 
+0000001903 00000 n 
+0000002094 00000 n 
+0000002359 00000 n 
+0000002555 00000 n 
+0000002747 00000 n 
+0000002941 00000 n 
+0000003127 00000 n 
+0000003326 00000 n 
+0000003524 00000 n 
+0000003713 00000 n 
+0000003914 00000 n 
+0000004114 00000 n 
+0000004317 00000 n 
+0000004525 00000 n 
+0000004733 00000 n 
+0000004922 00000 n 
+0000005124 00000 n 
+0000005433 00000 n 
+0000005621 00000 n 
+0000005819 00000 n 
+0000006006 00000 n 
+0000006197 00000 n 
+0000006317 00000 n 
+0000006495 00000 n 
+0000006684 00000 n 
+0000006870 00000 n 
+0000007055 00000 n 
+0000007239 00000 n 
+0000007429 00000 n 
+0000007627 00000 n 
+0000007825 00000 n 
+0000008021 00000 n 
+0000008216 00000 n 
+0000008411 00000 n 
+0000008727 00000 n 
+0000008913 00000 n 
+0000009111 00000 n 
+0000009308 00000 n 
+0000009513 00000 n 
+0000009715 00000 n 
+0000009914 00000 n 
+0000010099 00000 n 
+0000010296 00000 n 
+0000010560 00000 n 
+0000010630 00000 n 
+0000010932 00000 n 
+0000011014 00000 n 
+0000014090 00000 n 
+0000017339 00000 n 
+0000020043 00000 n 
+trailer
+<<
+/ID 
+[<f6d9f8e15c72094edd532d471a7ed41b><f6d9f8e15c72094edd532d471a7ed41b>]
+% ReportLab generated PDF document -- digest (opensource)
+
+/Info 56 0 R
+/Root 55 0 R
+/Size 62
+>>
+startxref
+20800
+%%EOF
