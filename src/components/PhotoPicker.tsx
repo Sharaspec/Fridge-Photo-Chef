@@ -4,11 +4,13 @@ interface Props {
   onFile: (file: File) => void;
   disabled?: boolean;
   compact?: boolean;
+  /** In compact mode: true once the user has their own photo ("Retake"), false for samples/typed lists. */
+  hasPhoto?: boolean;
 }
 
 const ACCEPT = "image/jpeg,image/png,image/webp,image/heic,image/heif,.heic,.heif";
 
-export function PhotoPicker({ onFile, disabled, compact }: Props) {
+export function PhotoPicker({ onFile, disabled, compact, hasPhoto }: Props) {
   const uploadRef = useRef<HTMLInputElement>(null);
   const cameraRef = useRef<HTMLInputElement>(null);
 
@@ -20,11 +22,11 @@ export function PhotoPicker({ onFile, disabled, compact }: Props) {
 
   return (
     <div className={compact ? "picker picker--compact" : "picker"}>
-      <button type="button" className="btn btn--primary" disabled={disabled} onClick={() => cameraRef.current?.click()}>
-        <CameraIcon /> Take photo
+      <button type="button" className={compact ? "btn btn--secondary" : "btn btn--sunny"} disabled={disabled} onClick={() => cameraRef.current?.click()}>
+        <CameraIcon /> {compact ? (hasPhoto ? "Retake photo" : "Snap my fridge") : "Take photo"}
       </button>
       <button type="button" className="btn btn--secondary" disabled={disabled} onClick={() => uploadRef.current?.click()}>
-        <UploadIcon /> Upload photo
+        <UploadIcon /> {compact && hasPhoto ? "Upload another" : "Upload photo"}
       </button>
       <input ref={cameraRef} type="file" accept="image/*" capture="environment" hidden onChange={handle} />
       <input ref={uploadRef} type="file" accept={ACCEPT} hidden onChange={handle} />

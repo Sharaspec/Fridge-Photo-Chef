@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import type { Filters } from "../shared/filters";
 import { FilterBar } from "./components/FilterBar";
+import { CookIcon, SnapIcon, TweakIcon } from "./components/Illustrations";
+import { Polaroid, SampleScene } from "./components/Polaroid";
 import { IngredientChips } from "./components/IngredientChips";
 import { PhotoPicker } from "./components/PhotoPicker";
 import { SearchTabs } from "./components/SearchTabs";
@@ -19,15 +21,19 @@ import {
 } from "./lib/api";
 import { useFavorites } from "./lib/favorites";
 import { prepareImage } from "./lib/image";
+import { SAMPLES, type SampleFridge, type SampleId } from "./lib/samples";
 import { AppError, type Dish, type Ingredient, type Video } from "./lib/types";
 
 type Busy = null | "preparing" | "analyzing" | "searching";
 
 const BUSY_TEXT: Record<Exclude<Busy, null>, string> = {
   preparing: "Getting your photo ready…",
-  analyzing: "Spotting ingredients…",
+  analyzing: "Developing… spotting ingredients",
   searching: "Finding recipe videos…",
 };
+
+const SAMPLE_TILTS = [-4, 3, -2, 4];
+const today = new Intl.DateTimeFormat("en", { weekday: "long" }).format(new Date());
 
 interface UiError {
   where: "photo" | "search";
@@ -82,6 +88,8 @@ function filterSummary(f: Filters): string {
 export default function App() {
   const [busy, setBusy] = useState<Busy>(null);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  /** Set when the user is exploring a sample fridge instead of their own photo. */
+  const [sample, setSample] = useState<SampleId | null>(null);
   const [ingredients, setIngredients] = useState<Ingredient[] | null>(null);
   const [filters, setFilters] = useState<Filters>(loadFilters);
   const [results, setResults] = useState<Results | null>(null);
@@ -123,6 +131,8 @@ export default function App() {
     setResults(null);
     setBasisKey(null);
     setDishes(null);
+    setSample(null);
+    setPreviewUrl(null);
     setBusy("preparing");
     try {
       const img = await prepareImage(file);
@@ -190,6 +200,22 @@ export default function App() {
     }
   }
 
+  function pickSample(s: SampleFridge) {
+    searchSeq.current++;
+    dishSeq.current++;
+    setError(null);
+    setResults(null);
+    setBasisKey(null);
+    setDishes(null);
+    setDishesLoading(false);
+    setPreviewUrl(null);
+    setSample(s.id);
+    setIngredients(s.ingredients);
+    setAnnouncement(`Opened the ${s.caption}: ${s.ingredients.length} ingredients.`);
+    window.scrollTo({ top: 0 });
+    requestAnimationFrame(() => ingredientsRef.current?.focus());
+  }
+
   function pickTab(t: SearchTarget | "ingredients") {
     search(t === "ingredients" ? { kind: "ingredients", names: searchNames } : t);
   }
@@ -210,6 +236,7 @@ export default function App() {
     setDishes(null);
     setDishesLoading(false);
     setPreviewUrl(null);
+    setSample(null);
     setError(null);
   }
 
@@ -231,8 +258,11 @@ export default function App() {
       <header className="site-header">
         <div className="wrap site-header__inner">
           <a className="brand" href="/" onClick={(e) => (e.preventDefault(), startOver())}>
-            <img src="/favicon.svg" alt="" width="28" height="28" />
-            Fridge Photo Chef
+            <img src="/favicon.svg" alt="" width="32" height="32" />
+            <span>
+              Fridge Photo Chef
+              <span className="brand__tag" aria-hidden="true">snap · cook · enjoy</span>
+            </span>
           </a>
           <button
             type="button"
@@ -249,11 +279,15 @@ export default function App() {
       </header>
 
       {view === "saved" && (
-        <main className="wrap saved">
+        <main className="saved">
+          <div className="wrap">
           <div className="saved__head">
-            <h1 id="saved-title" ref={savedRef} tabIndex={-1}>
-              Saved recipes
-            </h1>
+            <div>
+              <p className="scribble">pinned in this browser</p>
+              <h1 id="saved-title" ref={savedRef} tabIndex={-1}>
+                Your recipe board
+              </h1>
+            </div>
             <button type="button" className="btn btn--secondary" onClick={() => showView("main")}>
               {ingredients ? "Back to my ingredients" : "Back"}
             </button>
@@ -264,46 +298,112 @@ export default function App() {
               <VideoGrid videos={favorites} onPlay={setPlaying} />
             </>
           ) : (
-            <p className="empty">Tap the heart on any recipe video to save it here.</p>
+            <div className="empty">
+              <Polaroid tilt={-3} caption="your favorites go here" fastener="pin">
+                <SampleScene id="breakfast" />
+              </Polaroid>
+              <p>Tap the ♥ on any recipe video to pin it to your board.</p>
+            </div>
           )}
+          </div>
         </main>
       )}
 
-      <main className="wrap" hidden={view !== "main"}>
-        {ingredients === null && (
-          <section className="hero" aria-labelledby="hero-title">
-            <h1 id="hero-title">What can I cook with what I've got?</h1>
-            <p className="hero__lead">
-              Snap a photo of your fridge or pantry. We'll spot the ingredients and find recipe videos that use them.
-            </p>
-            <PhotoPicker onFile={handleFile} disabled={busy !== null} />
-            <ol className="steps" aria-label="How it works">
-              <li><strong>1</strong> Take a photo</li>
-              <li><strong>2</strong> Check the ingredients</li>
-              <li><strong>3</strong> Watch a recipe</li>
-            </ol>
-            <p className="tip">Tip: open the door wide, turn on the light and get as many shelves in the shot as you can.</p>
-          </section>
+      <main hidden={view !== "main"}>
+        {ingredients === null && !busy && (
+          <>
+            <section className="hero" aria-labelledby="hero-title">
+              <div className="wrap hero__inner">
+                <div className="hero__copy">
+                  <p className="scribble">psst… there's a dinner hiding in your fridge</p>
+                  <h1 id="hero-title">
+                    What can I cook with <span className="highlight">what I've got?</span>
+                  </h1>
+                  <p className="hero__lead">
+                    Snap your fridge or pantry. We'll spot the ingredients, dream up dishes and find recipe videos you
+                    can cook along with.
+                  </p>
+                  <PhotoPicker onFile={handleFile} disabled={busy !== null} />
+                  <p className="tip">Tip: open the door wide, turn on the light and fit in as many shelves as you can.</p>
+                </div>
+
+                <div className="hero__board">
+                  <h2 className="scribble scribble--board" id="samples-title">
+                    No photo handy? Peek inside one of these
+                  </h2>
+                  <ul className="samples" aria-labelledby="samples-title">
+                    {SAMPLES.map((s, n) => (
+                      <li key={s.id}>
+                        <button type="button" className="sample" onClick={() => pickSample(s)}>
+                          <Polaroid tilt={SAMPLE_TILTS[n]} caption={s.caption}>
+                            <SampleScene id={s.id} />
+                          </Polaroid>
+                          <span className="sample__blurb">{s.blurb}</span>
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </section>
+
+            <section className="how wrap" aria-labelledby="how-title">
+              <h2 id="how-title">How it works</h2>
+              <ol className="how__steps">
+                <li>
+                  <SnapIcon />
+                  <h3><span className="how__num">1</span> Snap</h3>
+                  <p>Take a quick photo of your fridge, freezer or pantry shelf.</p>
+                </li>
+                <li>
+                  <TweakIcon />
+                  <h3><span className="how__num">2</span> Tweak</h3>
+                  <p>Gemini lists what it sees. Fix anything, then pick a meal, time or diet.</p>
+                </li>
+                <li>
+                  <CookIcon />
+                  <h3><span className="how__num">3</span> Cook</h3>
+                  <p>Watch recipe videos, get a recipe card and a shopping list for anything missing.</p>
+                </li>
+              </ol>
+            </section>
+          </>
         )}
 
+        <div className="wrap">
         <div className="visually-hidden" role="status" aria-live="polite">
           {busy ? BUSY_TEXT[busy] : announcement}
         </div>
-        {busy && busy !== "searching" && <Loading text={BUSY_TEXT[busy]} />}
+        {busy && busy !== "searching" && (
+          <div className="developing">
+            <Polaroid tilt={-2} caption={BUSY_TEXT[busy]} developing>
+              {previewUrl ? <img src={previewUrl} alt="" /> : <span className="polaroid__blank" />}
+            </Polaroid>
+          </div>
+        )}
 
         {errorBox("photo")}
 
         {ingredients !== null && (
           <section className="panel" aria-labelledby="ingredients-title">
             <div className="panel__head">
-              {previewUrl && <img className="thumb" src={previewUrl} alt="Your fridge photo" />}
+              {(previewUrl || sample) && (
+                <Polaroid
+                  tilt={-3}
+                  className="panel__polaroid"
+                  caption={sample ? SAMPLES.find((x) => x.id === sample)?.caption : `My fridge, ${today}`}
+                >
+                  {sample ? <SampleScene id={sample} /> : <img src={previewUrl!} alt="Your fridge photo" />}
+                </Polaroid>
+              )}
               <div>
+                <p className="scribble">{sample ? "sample fridge" : previewUrl ? "here's what we spotted" : "let's get cooking"}</p>
                 <h2 id="ingredients-title" ref={ingredientsRef} tabIndex={-1}>
-                  Your ingredients
+                  {sample ? `Inside the ${SAMPLES.find((x) => x.id === sample)?.caption.toLowerCase()}` : "Your ingredients"}
                 </h2>
                 <p className="muted">
                   {ingredients.length
-                    ? "Remove anything that's wrong and add anything we missed."
+                    ? "Tap ✕ to remove anything that's wrong, and add anything we missed."
                     : "Type in what you have to search for recipes."}
                 </p>
               </div>
@@ -328,7 +428,7 @@ export default function App() {
               >
                 {stale ? "Update recipes" : "Find recipes"}
               </button>
-              <PhotoPicker onFile={handleFile} disabled={busy !== null} compact />
+              <PhotoPicker onFile={handleFile} disabled={busy !== null} compact hasPhoto={Boolean(previewUrl)} />
             </div>
           </section>
         )}
@@ -348,10 +448,17 @@ export default function App() {
             {results && (
               <>
                 <div className="results__head">
+                  <p className="scribble">press play & cook along</p>
                   <h2 id="results-title" ref={resultsRef} tabIndex={-1}>
-                    {results.target.kind === "dish"
-                      ? `Videos for “${results.target.name}”`
-                      : `Recipes with ${list.format(results.target.names)}`}
+                    {results.target.kind === "dish" ? (
+                      <>
+                        Videos for <span className="highlight">{results.target.name}</span>
+                      </>
+                    ) : (
+                      <>
+                        Recipes with <span className="highlight">{list.format(results.target.names)}</span>
+                      </>
+                    )}
                   </h2>
                   {filterSummary(results.filters) && <p className="muted">{filterSummary(results.filters)}</p>}
                   {stale && <p className="hint">You changed your ingredients or filters. Tap “Update recipes” to refresh.</p>}
@@ -361,9 +468,11 @@ export default function App() {
             )}
           </section>
         )}
+        </div>
       </main>
 
       <footer className="site-footer wrap">
+        <p className="scribble site-footer__sign">Happy cooking! ♥</p>
         <p>
           Your photo is sent to Google's Gemini AI to find ingredients and is not saved by this app. On Gemini's free tier,
           Google may use what you send to improve its products, so please don't upload anything private.

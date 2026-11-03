@@ -17,7 +17,15 @@ export function VideoGrid({ videos, onPlay }: Props) {
           <li key={v.id} className="video-grid__item">
             <button type="button" className="video-card" onClick={() => onPlay(v)} aria-label={`Play ${title} by ${channel}`}>
               <span className="video-card__thumb">
-                <img src={v.thumbnail} alt="" loading="lazy" width="480" height="360" />
+                <img
+                  src={v.thumbnail}
+                  alt=""
+                  loading="lazy"
+                  width="480"
+                  height="360"
+                  // If YouTube's image can't load, show the green/yellow backdrop instead of a broken icon.
+                  onError={(e) => (e.currentTarget.style.visibility = "hidden")}
+                />
                 <span className="video-card__duration">{formatDuration(v.durationSeconds)}</span>
                 <span className="video-card__play" aria-hidden="true">
                   <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">

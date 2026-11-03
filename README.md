@@ -4,6 +4,8 @@ Snap a photo of your fridge or pantry → Gemini spots the ingredients → YouTu
 
 See [`Docs/`](Docs) for the product requirements and API guide.
 
+The look is a light "kitchen scrapbook": white paper, leafy green and sunny yellow, with Polaroid-framed illustrations (`src/components/Illustrations.tsx`, original SVG artwork), washi tape, sticky-note dish ideas and a notepad shopping list. Four **sample fridges** on the home page let people explore without taking a photo (no Gemini call needed); they live in `src/lib/samples.ts`.
+
 **Stack:** React + Vite (front end) · Netlify Functions (API proxy) · Gemini API · YouTube Data API v3 · all free tiers.
 
 ## How it works
